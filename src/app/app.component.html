@@ -1,0 +1,36 @@
+<!-- Page Content -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+<div class="container w3-green">
+
+  <header class="w3-blue text-center p-2  py-3 mb-4">
+    <div class="container">
+      <h1 class="font-weight-light text-white">
+        <i class="fab fa-youtube"></i> <a class="text-red"> WEB APPLICATION YOUTUBER</a></h1><br>
+        <h2 class="text-black">DISCOVER MORE VIDEOS</h2>
+    </div>
+  </header>
+
+  <app-search></app-search>
+
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+    <p style="font-size: 20px; color: rgb(99, 78, 10)">Loading...</p>
+  </ngx-spinner>
+  <div class="row">
+   <div *ngFor="let video of videos" class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-0 shadow vh-50">
+        <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
+          <img [src]="video.snippet.thumbnails.medium.url" class="card-img-top" alt="..."></a>
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">
+            <a href="https://www.youtube.com/watch?v={{video.id.videoId}}">{{video.snippet.title}}
+            </a></h5>
+          <div class="card-text text-black-50">{{video.snippet.description.slice(0, 100)}}</div>
+         </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
